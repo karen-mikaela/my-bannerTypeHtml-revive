@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href="xsl/mdb2_schema.xsl"?>
+<database>
+
+ <name>terraTemplateHtml</name>
+ <create>false</create>
+ <overwrite>false</overwrite>
+ <version>001</version>
+ <status>final</status>
+
+ <table>
+
+  <name>my_banners</name>
+
+  <declaration>
+
+   <field>
+    <name>bannerid</name>
+    <type>openads_mediumint</type>
+    <length>9</length>
+    <notnull>true</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>terra_template_id</name>
+    <type>openads_mediumint</type>
+    <length>9</length>
+    <notnull>true</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>terra_link_url</name>
+    <type>openads_varchar</type>
+    <length>100</length>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>terra_link_text</name>
+    <type>openads_varchar</type>
+    <length>100</length>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>terra_title</name>
+    <type>openads_varchar</type>
+    <length>100</length>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>terra_description</name>
+    <type>openads_varchar</type>
+    <length>100</length>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>terra_click_url_unesc</name>
+    <type>openads_varchar</type>
+    <length>100</length>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+
+   <index>
+    <name>my_banners_pkey</name>
+    <unique>true</unique>
+    <field>
+     <name>bannerid</name>
+     <sorting>ascending</sorting>
+    </field>
+   </index>
+
+  </declaration>
+
+ </table>
+
+ <table>
+
+  <name>html_template_terra</name>
+
+  <declaration>
+
+   <field>
+    <name>html_template_id</name>
+    <type>openads_mediumint</type>
+    <length>9</length>
+    <notnull>true</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>template_name</name>
+    <type>openads_varchar</type>
+    <length>100</length>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+
+   <field>
+    <name>template_code</name>
+    <type>openads_text</type>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+
+   <index>
+    <name>html_template_terra_pkey</name>
+    <primary>true</primary>
+    <field>
+     <name>html_template_id</name>
+     <sorting>ascending</sorting>
+    </field>
+   </index>
+
+  </declaration>
+
+ </table>
+
+</database>

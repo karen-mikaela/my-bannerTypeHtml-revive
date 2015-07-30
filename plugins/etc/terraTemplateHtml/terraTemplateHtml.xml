@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml-stylesheet type="text/xsl" href=""?>
+
+<plugin>
+    <name>terraTemplateHtml</name>
+    <creationDate>2015-02-20</creationDate>
+    <author>Karen Mikaela Saavedra Chavez</author>
+    <authorEmail>karen.mikaela@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <license>GPL</license>
+    <description>Added one option for select a html template</description>
+    <version>0.0.1</version>
+    <oxversion>3.1.0</oxversion>
+    <extends>bannerTypeHtml</extends>
+
+    <install>
+
+
+        <files>
+            <file path="{GROUPPATH}/">processPreferences.php</file>
+            <file path="{GROUPPATH}/">processSettings.php</file>
+                        <!-- this extension requires a class and a delivery function -->
+            <file path="{MODULEPATH}bannerTypeHtml/terraTemplateHtml/">terraTemplateHtmlComponent.class.php</file>
+            <file path="{MODULEPATH}bannerTypeHtml/terraTemplateHtml/">terraTemplateHtmlComponent.delivery.php</file>
+            <!--file path="{MODULEPATH}bannerTypeHtml/terraTemplateHtml/_lang">en.mo</file-->
+        </files>
+
+
+
+        <!-- optional configuration settings and preferences -->
+        <configuration>
+            <!-- only administrator has permissions to change settings in config file -->
+            <!-- settings are written to a group section [terraTemplateHtml] -->
+            <!--setting key="setting1" type="text" label="Message" required="1" size="32" visible="1">Setting1 Default Value</setting-->
+
+            <!-- preferences have role-based permissions-->
+            <!-- preferences are prefixed in the preference table with the group name e.g. terraTemplateHtml_preference_Admin -->
+            <!-- type, label, size and visible govern the display of the preference for editing -->
+            <!-- required=1 for mandatory preferences ; required=0 for optional preferences -->
+            <!--preference name="preference_Admin"      permission="ADMIN"      type="text" label="Admin Colour"     required="1" size="7" visible="1">preference_Admin default value</preference>
+            <preference name="preference_Manager"    permission="MANAGER"    type="text" label="Manager Colour"   required="0" size="7" visible="1">preference_Manager default value</preference>
+            <preference name="preference_Advertiser" permission="ADVERTISER" type="text" label="Advertiser Colour" required="0" size="7" visible="1">preference_Advertiser default value</preference>
+            <preference name="preference_Trafficker" permission="TRAFFICKER" type="text" label="Trafficker Colour" required="0" size="7" visible="1">preference_Trafficker default value</preference-->
+        </configuration>
+
+        <!-- details of individual components in this group -->
+        <components>
+           <!--component-->
+                <!--name>{COMPONENT}</name-->
+                <!-- optional language file -->
+                <!--translations>{MODULEPATH}bannerTypeHtml/terraTemplateHtml/_lang/</translations-->
+                <!-- optional hooks -->
+                <!--hook>{HOOK}</hook-->
+           <!--/component-->
+        </components>
+
+        <!-- optional database schema info -->
+        <schema>
+            <mdb2schema>tables_terraTemplateHtml</mdb2schema>
+            <dboschema>db_schema</dboschema>
+            <dbolinks>db_schema.links</dbolinks>
+            <dataobject>My_banners.php</dataobject>
+            <dataobject>Html_template_terra.php</dataobject>
+        </schema>
+
+
+        <!-- optional custom event scripts -->
+        <prescript>prescript_install_terraTemplateHtml.php</prescript>
+        <postscript>postscript_install_terraTemplateHtml.php</postscript>
+
+    </install>
+
+</plugin>
