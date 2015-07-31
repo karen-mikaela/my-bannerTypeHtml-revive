@@ -86,9 +86,9 @@ class Plugins_BannerTypeHTML_terraTemplateHtml_terraTemplateHtmlComponent extend
     function preprocessForm($insert, $bannerid, &$aFields, &$aVariables)
     {
         $htmlTemplate = $this->getMyTemplate();
-        $aVariables['width']            = $htmlTemplate->template_width;
-        $aVariables['height']           = $htmlTemplate->template_height;
-        $aVariables['htmltemplate']     = $this->buildHtmlTemplate($htmlTemplate->template_code,
+        $aVariables['width']            = $htmlTemplate['template_width'];
+        $aVariables['height']           = $htmlTemplate['template_height'];
+        $aVariables['htmltemplate']     = $this->buildHtmlTemplate($htmlTemplate['template_code'],
                                                                     array(
                                                                           'p_link_url'=> $aFields['p_link_url'],
                                                                           'p_link_text' => $aFields['p_link_text'],
@@ -100,6 +100,26 @@ class Plugins_BannerTypeHTML_terraTemplateHtml_terraTemplateHtmlComponent extend
                                                                   );
 
         return true;
+    }
+
+    function processForm($insert, $bannerid, $aFields){
+
+        $my_banners = OA_Dal::factoryDO('my_banners');
+        $my_banners->terra_link_url           = $aFields['p_link_url'];
+        $my_banners->terra_link_text          = $aFields['p_link_text'];
+        $my_banners->terra_title              = $aFields['p_title'];
+        $my_banners->terra_description        = $aFields['p_description'];
+        $my_banners->terra_image_url          = $aFields['p_image_url'];
+        $my_banners->terra_click_url_unesc    = $aFields['p_click_url_unesc'];
+
+        if ($insert){
+            $my_banners->bannerid                 = $bannerid;
+            return $my_banners->insert();
+        }
+        else{
+            $my_banners->whereAdd('bannerid='.$bannerid, 'AND');
+            return $my_banners->update(DB_DATAOBJECT_WHEREADD_ONLY);
+        }
     }
 
 

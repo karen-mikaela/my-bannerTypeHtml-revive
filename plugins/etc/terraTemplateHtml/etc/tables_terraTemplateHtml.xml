@@ -23,14 +23,6 @@
    </field>
 
    <field>
-    <name>terra_template_id</name>
-    <type>openads_mediumint</type>
-    <length>9</length>
-    <notnull>true</notnull>
-    <default></default>
-   </field>
-
-   <field>
     <name>terra_link_url</name>
     <type>openads_varchar</type>
     <length>100</length>
@@ -56,6 +48,13 @@
 
    <field>
     <name>terra_description</name>
+    <type>openads_varchar</type>
+    <length>100</length>
+    <notnull>false</notnull>
+    <default></default>
+   </field>
+   <field>
+    <name>terra_image_url</name>
     <type>openads_varchar</type>
     <length>100</length>
     <notnull>false</notnull>

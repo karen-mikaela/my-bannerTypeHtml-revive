@@ -15,6 +15,7 @@ class DataObjects_My_banners extends DB_DataObjectCommon
     public $terra_link_text;                     // VARCHAR(100) openads_varchar => 130
     public $terra_title;                         // VARCHAR(100) openads_varchar => 130
     public $terra_description;                   // VARCHAR(100) openads_varchar => 130
+    public $terra_image_url;                     // VARCHAR(100) openads_varchar => 130
     public $terra_click_url_unesc;               // VARCHAR(100) openads_varchar => 130
 
 
